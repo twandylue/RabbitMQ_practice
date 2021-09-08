@@ -36,7 +36,8 @@ namespace Worker
                 );
                 Console.WriteLine(" [*] Waiting for messages.");
                 var consumer = new EventingBasicConsumer(channel);
-                consumer.Received += (sender, ea) => {
+                consumer.Received += (sender, ea) =>
+                {
                     var body = ea.Body.ToArray();
                     var message = Encoding.UTF8.GetString(body);
                     // Console.WriteLine(" [x] Received {0}", message);
@@ -55,14 +56,15 @@ namespace Worker
                     autoAck: false,
                     consumer: consumer
                 );
-                Console.WriteLine( " Press [enter] to exit");
+                Console.WriteLine(" Press [enter] to exit");
                 Console.ReadLine();
             }
         }
     }
 
-    class Person {
-        public string name {get; set;}
-        public int age {get; set;}
+    class Person
+    {
+        public string name { get; set; }
+        public int age { get; set; }
     }
 }
