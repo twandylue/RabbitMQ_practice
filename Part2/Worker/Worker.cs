@@ -2,6 +2,7 @@
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 
 namespace Worker
@@ -38,15 +39,16 @@ namespace Worker
                 consumer.Received += (sender, ea) => {
                     var body = ea.Body.ToArray();
                     var message = Encoding.UTF8.GetString(body);
-                    Console.WriteLine(" [x] Received {0}", message);
-                    // int dots = message.Split('.').Length -1;
-                    // Thread.Sleep(dots * 1000);
-                    Thread.Sleep(1000);
+                    // Console.WriteLine(" [x] Received {0}", message);
+                    Person ms = JsonSerializer.Deserialize<Person>(message);
+                    Console.WriteLine($"Name: {ms.name}");
+                    Console.WriteLine($"Age: {ms.age}");
                     Console.WriteLine(" [x] Done");
                     channel.BasicAck(
                         deliveryTag: ea.DeliveryTag,
                         multiple: false
                     );
+                    Thread.Sleep(500);
                 };
                 channel.BasicConsume(
                     queue: "task_queue",
@@ -57,5 +59,10 @@ namespace Worker
                 Console.ReadLine();
             }
         }
+    }
+
+    class Person {
+        public string name {get; set;}
+        public int age {get; set;}
     }
 }

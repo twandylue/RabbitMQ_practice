@@ -1,6 +1,7 @@
 ﻿using System;
 using RabbitMQ.Client;
 using System.Text;
+using System.Text.Json;
 
 namespace NewTask
 {
@@ -50,7 +51,19 @@ namespace NewTask
         }
         private static string GetMessage(string[] args)
         {
-            return ((args.Length > 0) ? string.Join(" ", args) : "Hello World!");
+            var target = new Person
+            {
+                name = "Andy",
+                age = 27
+            };
+            string jsonString = JsonSerializer.Serialize<Person>(target);
+            return ((args.Length > 0) ? string.Join(" ", args) : jsonString);
         }
+    }
+
+    class Person
+    {
+        public string name { get; set; }
+        public int age { get; set; }
     }
 }
