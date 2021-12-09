@@ -4,7 +4,7 @@ using RabbitMQ.Client.Events;
 using System.Text;
 using System.Threading;
 
-class Worker
+class Worker2
 {
     public static void Main()
     {

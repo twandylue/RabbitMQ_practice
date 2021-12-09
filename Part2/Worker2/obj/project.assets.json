@@ -114,11 +114,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\91APP\\RabbitMQ_tutorial\\Part2\\NewTask\\NewTask.csproj",
-      "projectName": "NewTask",
-      "projectPath": "D:\\91APP\\RabbitMQ_tutorial\\Part2\\NewTask\\NewTask.csproj",
+      "projectUniqueName": "D:\\91APP\\RabbitMQ_tutorial\\Part2\\Worker2\\Worker2.csproj",
+      "projectName": "Worker2",
+      "projectPath": "D:\\91APP\\RabbitMQ_tutorial\\Part2\\Worker2\\Worker2.csproj",
       "packagesPath": "C:\\Users\\Andy Lu2\\.nuget\\packages\\",
-      "outputPath": "D:\\91APP\\RabbitMQ_tutorial\\Part2\\NewTask\\obj\\",
+      "outputPath": "D:\\91APP\\RabbitMQ_tutorial\\Part2\\Worker2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Andy Lu2\\AppData\\Roaming\\NuGet\\NuGet.Config",
